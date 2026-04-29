@@ -1,0 +1,999 @@
+ARMSTRONG NUMBER:
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.*;
+class Main{
+    static int arm(int a){
+        int count=0;
+        while(a>0){
+            int b=a%10;
+            count+=1;
+            a=a/10;
+        }
+        return count;
+    }
+    static void check(int a){
+        int b=a,sum=0;
+        int digit=arm(a);
+        while(a>0){
+            int rem=a%10;
+            sum+=Math.pow(rem,digit);
+            a=a/10;
+        }
+        if(sum==b){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+        
+    }
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        int num=s.nextInt();
+        check(num);
+    }
+}
+METHOD 2:
+import java.util.*;
+class Armstrong
+{
+    static int arm(int y)
+    {
+        int count=0;
+        while(y>0)
+        {
+            int v=y%10;
+            count++;
+            y=y/10;
+        }
+        return count;
+    }
+    static void check(int c,int b)
+    {
+        int t=b,sum=0;
+        while(b>0)
+        {
+            int rem=b%10;
+            sum+=Math.pow(rem,c);
+            b=b/10;
+        }if(sum==t)
+        {
+            System.out.println("Yes");
+        }
+        else
+        {
+            System.out.println("No");
+        }
+    }
+    public static void main(String[] venky)
+    {
+        Scanner v=new Scanner(System.in);
+        int a=v.nextInt();
+       int c= arm(a);
+       check(c,a);
+    }
+}
+STRONG NUMBER:
+I/P:145
+O/P:STRONG
+EXP:1!+4!+5!
+import java.util.*;
+class Strong{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        int num=s.nextInt();
+        fact(num);
+    }
+    static void fact(int a){
+        int b=a,fact=1,sum=0;
+        while(a>0){
+            int c=a%10;
+                for(int i=1;i<=c;i++){
+                    fact=fact*i;
+                //System.out.println(fact);
+                
+                
+                    //System.out.println(sum);
+                }
+                sum+=fact;
+                //System.out.println(sum);
+                fact=1;
+            a=a/10;
+        }
+        //System.out.println(sum);
+        
+        if(b==sum){
+            System.out.println("STRONG");
+        }else{
+            System.out.println("NOT");
+        }
+    }
+}
+PERFECT NUMBER:
+I/P:28
+O/P:YES
+EXP:SUM OF ALL DIVISORS(1,2,4,7,14)=28
+import java.util.*;
+class Perfect{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        int num=s.nextInt();
+        check(num);
+    }
+    static void check(int a){
+        int sum=0;
+        for(int i=1;i<=a/2;i++){
+            if(a%i==0){
+                sum+=i;
+            }
+        }
+        if(a==sum){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+        
+    }
+}
+AUTOMORPHIC:
+I/P:5
+O/P:YES
+BCOZ ITS SQUARE(25) ENDS WITH 5
+import java.util.*;
+class Automorphic{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        int num=s.nextInt();
+        check(num);
+    }
+    static void check(int a){
+       int c=0,b=a;
+       while(a>0){
+           int d=a%10;
+           c++;
+           a/=10;
+       }
+       int res= b % (int)Math.pow(10,c);
+       if(res==b){
+           System.out.println("YES");
+       }else{
+           System.out.println("NO");
+       }
+    }
+}
+PRINT ALL PRIME NUMBERS IN GIVEN RANGE
+I/P: 1 20
+O/P: 2 3 5 7 11 13 17 19
+import java.util.*;
+class Primerange{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        int num1=s.nextInt();
+        int num2=s.nextInt();
+        check(num1,num2);
+    }
+    static void prime(int n){
+        int c=0;
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                c=1;
+                break;
+            }
+        }
+        if(c==0 && n>1){
+            System.out.print(n + " ");
+        }
+    }
+        static void check(int a,int b){
+            for(int i=a;i<=b;i++){
+                prime(i);
+            }
+        }
+    }
+    
+USE KNOWN FUNCTIONS THEN SIMPLIFY THE PROGRAM
+REVERSE AN ARRAY
+import java.util.*;
+class ArrayReverse{
+     static void rev(int n,int a[]){
+         for(int i=n-1;i>=0;i--){
+             System.out.print(a[i]+" ");
+         }
+         
+         
+     }
+         public static void main(String[] args){
+         Scanner s=new Scanner(System.in);
+         int num=s.nextInt();
+         int arr[]=new int[num];
+         for(int i=0;i<num;i++){
+             arr[i]=s.nextInt();
+         }
+         rev(num,arr);
+     }
+}
+THIS EFFICIENCY IS LESS
+METHOD 2
+import java.util.*;
+class ArrayReverse{
+     static void rev(int n,int a[]){
+         for(int i=0;i<n/2;i++){
+            int t=a[i];
+            a[i]=a[n-i-1];
+            a[n-i-1]=t;
+         }
+         for(int i=0;i<n;i++){
+              System.out.print(a[i]+" ");
+         }
+         
+         
+     }
+         public static void main(String[] args){
+         Scanner s=new Scanner(System.in);
+         int num=s.nextInt();
+         int arr[]=new int[num];
+         for(int i=0;i<num;i++){
+             arr[i]=s.nextInt();
+         }
+         rev(num,arr);
+     }
+}
+PRIME NUMBER IN AN ARRAY
+import java.util.*;
+class ArrayPrime{
+     static void prime(int n,int a[]){
+         for(int i=0;i<n;i++){
+             check(a[i]);
+         }
+         
+     }
+     static void check(int a){
+         int count=0;
+         for(int i=2;i<=a/2;i++){
+             if(a%i==0){
+              count=1;
+              break;
+             }
+         }
+         if(count==0 && a>1){
+             System.out.print(a +" ");
+         }
+         
+     }
+         public static void main(String[] args){
+         Scanner s=new Scanner(System.in);
+         int num=s.nextInt();
+         int arr[]=new int[num];
+         for(int i=0;i<num;i++){
+             arr[i]=s.nextInt();
+         }
+         prime(num,arr);
+}
+}
+SORTING IN DESCENDING ORDER
+import java.util.*;
+class ArrayPrime{
+     static void sort(int n,int a[]){
+         for(int i=0;i<n-1;i++)//for undeestanding just iteration
+         {
+            for(int j=0;j<n-1;j++)//for iteration buuble sort one with another
+            {
+                if(a[j]<a[j+1])//IF LESS THAN JUST CHANGE{
+                    int t=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=t;
+                }
+            }
+         }
+         for(int i=0;i<n;i++){
+             System.out.print(a[i]+" ");
+         }
+         
+     }
+         public static void main(String[] args){
+         Scanner s=new Scanner(System.in);
+         int num=s.nextInt();
+         int arr[]=new int[num];
+         for(int i=0;i<num;i++){
+             arr[i]=s.nextInt();
+         }
+         sort(num,arr);
+}
+}
+ROTATE FOR GIVEN K
+I/P:1 2 3 4 5 
+O/P:4 5 1 2 3
+import java.util.*;
+class Rotate{
+    static void turn(int n,int a[],int k)
+    {   //int temp=a[n-1];
+        for(int i=0;i<k;i++){
+        int temp=a[n-1];//STORES THE VALUE IN THIS TEMP
+         for(int j=n-2;j>=0;j--){
+             a[j+1]=a[j];//HERE 4TH MOVES TO 3TH,THEN 2 FINALLY 0
+             
+         }    
+         a[0]=temp;//AND EMPTIED 0TH INDEX REPLACES TEMP
+         //break;
+    }
+    for(int i=0;i<n;i++){
+        System.out.print(a[i]+" ");
+    }
+        }
+        public static void main(String []args){
+        Scanner s=new Scanner(System.in);
+        
+        int num=s.nextInt();
+        int arr[]=new int[num];
+        for(int i=0;i<num;i++){
+            arr[i]=s.nextInt();
+        }
+        int k=s.nextInt();
+         turn(num,arr,k);
+    }
+}
+PRINT IN GIVEN SORTED ORDER
+I/P:9
+    3 2 3 1 7 2 6 8 8
+O/P:8 1 8 2 7 2 6 3 3 
+import java.util.*;
+class sort{
+    static void check(int n,int a[])
+    {
+       // int x;
+        Arrays.sort(a);//ascending la varum
+        for(int j=0;j<n/2;j++){
+         int x=a[n-j-1];//reverse la irundu print aagum
+            System.out.print(x+" ");
+        int y=a[0+j];//first la irundu print aagum
+        System.out.print(y+" ");
+        }if(n%2!=0){//if odd na centre element print aga
+            System.out.println(a[n/2]+" ");
+        }
+        //=x-1;
+    }
+        
+     public static void main(String[]args){
+     Scanner s=new Scanner(System.in);
+    int num=s.nextInt();
+    int arr[]=new int[num];
+    for(int i=0;i<num;i++){
+        arr[i]=s.nextInt();
+        
+    }
+    check(num,arr);
+}
+}
+IN ARRAY PRINT FIRST ELEMENT AND THEN CHECK AND PRINT GREATEST WITH PREVIOUS 
+3
+100 92 8
+100 
+import java.util.*;
+class PreviousCheck{
+    static void check(int n,int a[])
+    {
+       int max=a[0];
+       int p=max;
+       System.out.print(p+" ");
+       for(int i=1;i<n;i++){
+           if(a[i]>max){
+               System.out.print(a[i]+" ");
+               max=a[i];
+               
+               }
+               
+               //System.out.print(max+" ");
+       }
+    }
+        
+     public static void main(String[]args){
+     Scanner s=new Scanner(System.in);
+    int num=s.nextInt();
+    int arr[]=new int[num];
+    for(int i=0;i<num;i++){
+        arr[i]=s.nextInt();
+        
+    }
+    check(num,arr);
+}
+}
+PRINT THE GREATEST ELEMENT ACCORDING TO K VALUE
+I/P:5
+    3 4 4 5 2
+    4->K(WHICH MEANS THE FOURTH GREATEST ELEMENT BY EXCULDING DUPLICATION)
+O/P:2
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+    Scanner s=new Scanner(System.in);
+    int max=0;
+    int n=s.nextInt();
+    int a[]=new int[n];
+    for (int i=0;i<n;i++){
+        a[i]=s.nextInt();
+        if (a[i]>max){
+            max=a[i];
+        }
+    }
+    int k=s.nextInt();
+    int h[]=new int[max+1];
+    for(int i=0;i<n;i++){
+        h[a[i]]=1;
+    }
+    int c=1;
+    for(int i=max;i>=0;i--){
+        if(h[i]==1){
+            if(c==k){
+            System.out.print(i);
+            break;
+        }
+            c++;
+        }
+    }
+   
+    }
+}
+COUNT THE NUMBER OF PAIRS IN THE FOLLOWING
+import java.util.*;
+I/P:9
+    10 20 20 10 10 50 30 10 20
+O/P:4 
+public class Main
+{
+    static void pair(int n,int a[])
+    {
+        int max=a[0],min=a[0],z=0;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>max)
+            {
+                max=a[i];
+            }
+            else if(a[i]<min)
+            {
+                min=a[i];
+            }
+           
+        }
+            int x[]=new int[max+1];
+            for(int j=0;j<n;j++)
+            {
+                x[a[j]]+=1;
+            }
+            for(int k=min;k<=max;k++)
+            {
+                if(x[k]>1)
+                {
+                 
+                 
+                 
+                  z+=x[k]/2;
+                }
+            }
+       
+        System.out.print(z+" ");
+    }
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+int n=s.nextInt();
+int a[]=new int[n];
+for(int i=0;i<n;i++)
+{
+   a[i]=s.nextInt();
+}
+pair(n,a);
+}
+}
+PRINT THE LEAST PRIME NUMBER THAT IS DIVISBLE FROM PREVIOUS ARRAY
+I/P:2
+2
+20 16
+O/P:8 4
+import java.util.*;
+public class Main
+{
+     static int prime(int n){
+        int c=0;
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                c=1;
+                break;
+            }
+        }
+        if(c==0 && n>1){
+            return 0;}
+        else{
+            return 1;
+        }
+    }
+    static void pair(int n,int a[],int m,int b[])
+    {
+      int x,y,q;
+for(int i=0;i<n;i++)
+{
+  for(int j=4;j<1000;j++)
+  {
+  x=a[i]+j;
+  if(x%b[i]==0)
+  {
+    q=prime(j);
+    if(q==1)
+    {
+     System.out.print(j+" "); 
+     break;
+    
+    }
+  }
+  }
+}
+    }
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=s.nextInt();
+        }       
+        int m=s.nextInt();
+        int b[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            b[i]=s.nextInt();
+        }
+        pair(n,a,m,b);
+    }
+}
+STRING REVERSE
+I/P: HELLO
+O/P: OLLEH
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        reverse(str);
+    }
+    static void reverse(String a){
+        int len=a.length();
+        String ans=" ";
+        for(int i=len-1;i>=0;i--){
+            ans=ans+a.charAt(i);
+        }
+        System.out.print(ans);
+    }
+}
+STRING PALINDROME
+I/P:MADAM
+O/P:YES
+import java.util.*;
+class Palindrome{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        check(str);
+    }
+    static int check(String a){
+        int len=a.length();
+        for(int i=0;i<len/2;i++){
+            if(a.charAt(i)!=a.charAt(len-i-1)){
+              System.out.print("NO");
+              return 0;//break just breaks the loops but return breaks the whole function and return 0 (no effect)
+            }
+        }
+            System.out.print("YES");
+            return 0;//no do return occur at same time
+        //System.out.print(ans);
+    }
+}
+CHANGING VOWEL LETTER TO $
+I/P:apple
+O/P:$ppl$
+import java.util.*;
+class ReplaceString{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        check(str);
+    }
+    static void check(String a){
+        int len=a.length();
+        String ans="";
+        for(int i=0;i<len;i++){
+          char g=a.charAt(i);
+            if(g=='a'||g=='e'||g=='i'||g=='o'||g=='u'){
+              ans+='$';//direct ah change pannu
+              
+            }
+            else{
+              ans+=a.charAt(i);
+            }
+        }
+            System.out.print(ans);
+    }
+}
+REVERSE WORDS IN SPACE
+I/P:Today is Thursday
+O/P:Thursday is Today
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        rev(str);
+    }
+    public static void rev(String a){
+        String arr[ ]=a.split(" ");//split the string here
+        int n=arr.length;//length
+        for(int i=0;i<n/2;i++){
+            String  temp=arr[i];//string nala storing type string
+            arr[i]=arr[n-i-1];
+            arr[n-i-1]=temp;
+        }
+        String z=String.join(" ",arr);//array va string ah change panren
+        System.out.print(z);
+            }
+}
+REVERSE STRING USING STRING BUILDER
+I/P:HELLO
+O/P:OLLEH
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        StringBuilder s1=new StringBuilder(str);
+        change(s1);
+    }
+    public static void change(StringBuilder a){
+        a.reverse();;//WE DONT USE OBJECT BECAUSE IT IS MUTABLE
+        String z=a.toString();
+        System.out.print(z);
+        
+            }
+}
+PRINT CONSTANT AND NEXT VOWEL ALPHABET
+I/P:apple
+o/p:b$$$f
+import java.util.*;
+class ReplaceString{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        check(str);
+    }
+    static void check(String a){
+        int len=a.length();
+        String ans="";
+        for(int i=0;i<len;i++){
+          char g=a.charAt(i);
+            if(g=='a'||g=='e'||g=='i'||g=='o'||g=='u'){
+              ans+=(char)(g+1);//direct ah change pannu
+              
+            }
+            else{
+              ans+='$';
+            }
+        }
+            System.out.print(ans);
+    }
+}
+CHECK AND GIVE COUNT OF NUMBERS OF VOWEL,CONSONANT,SPACE,SYMBOLS,DIGITS
+I/p: Iam ## 123
+O/p: 2 1 2 3 3
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        count(str);
+    }
+    public static void count(String a){
+       int len=a.length();
+       int v=0,c=0,d=0,sp=0,sy=0;
+       for(int i=0;i<len;i++){
+        char t=a.charAt(i);
+        if(t=='a' ||t=='e' ||t=='i'||t=='o' || t=='u'||t=='A'||t=='E'||t=='I'||t=='O'||t=='U'){
+            v++;
+        }
+        else if(t>='0' && t<='9'){
+            d++;
+        }
+        else if(t==' '){
+            sp++;
+        }
+        else if((t>=97 && t<=122)||(t>=65 && t>=90)){
+            c++;
+        }
+        else{
+            sy++;
+        }
+        }
+        System.out.print(v+" ");
+        System.out.print(c+" ");
+          System.out.print(d+" ");
+           System.out.print(sp+" "); 
+           System.out.print(sy+" ");
+       
+
+        
+       }
+            }
+2nd METHOD:
+import java.util.Scanner;
+
+public class count {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        int a=0,b=0,c=0,d=0,e=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='a' || s.charAt(i)=='e'||s.charAt(i)=='i'||s.charAt(i)=='o'||s.charAt(i)=='u')
+            {
+                a++;
+               
+            }
+           
+           
+            else if(s.charAt(i)>=48 && s.charAt(i)-1<=57)
+            {
+                b++;
+            }
+            else if(s.charAt(i)==32)
+            {
+               c++;
+            }
+            else if(s.charAt(i)>=33 && s.charAt(i)<=47 || s.charAt(i)>=58 && s.charAt(i)<=64)
+            {
+              d++;
+            }
+            else
+            {
+                e++;
+            }
+           
+        }
+        System.out.print(a+" "+b+" "+c+" "+d+" "+e);
+         
+       
+    }
+   
+}
+PRINT THE ELEMENTS ONLY ONCE 
+I/P:5
+    1 2 2 3 3 4
+O/P:1 2 3 4
+
+import java.util.*;
+class Main
+{
+    static void dupli(int n,int a[])
+    {
+        int i;
+        int max=a[0];
+        for(i=0;i<n;i++){
+        if(a[i]>max)
+        {
+            max=a[i];
+        }}
+        int b[]=new int[max+1];
+        for(i=0;i<n;i++)
+        {
+            b[a[i]]+=1;
+        }
+        for(i=1;i<=max;i++){
+        if(b[i]>=1)
+        {
+            b[i]=0;
+            System.out.print(i+" ");
+        }
+       
+    }}
+       
+    public static void main(String[] args)
+    {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n];
+       
+            for(int i=0;i<n;i++){
+            a[i]=s.nextInt();
+            }
+            dupli(n,a);
+           
+}
+}
+
+
+
+USING ASCII VALUES
+PRINT THE STRING WITHOUT DUPLICATE
+I/P: apple
+O/P: aple
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String r=s.nextLine();
+        dup(r);
+    }
+    public static void dup(String a){
+        int n=a.length();
+     int arr[]=new int[26];
+     for(int i=0;i<n;i++){
+        arr[a.charAt(i)-97]++;
+     }
+     for(int i=0;i<n;i++){
+        if(arr[a.charAt(i)-97]>0){
+            System.out.print((a.charAt(i)));
+            arr[a.charAt(i)-97]=0;
+            
+        }
+     }
+    
+}
+}
+SORT IN GIVEN ORDER
+I/P:apple
+O/P:aelpp
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String r=s.nextLine();
+        dup(r);
+    }
+    public static void dup(String a){
+        int n=a.length();
+     int arr[]=new int[26];
+     for(int i=0;i<n;i++){
+        arr[a.charAt(i)-97]++;
+     }
+     for(int i=0;i<26;){
+         
+        if(arr[i]>0){
+            
+            System.out.print((char)(i+97));
+            arr[i]--;
+            
+          //  arr[i]=0;
+            
+        }
+        if(arr[i]==0){
+                i++;
+            }
+     }
+    
+}
+}
+ANAGRAMS:
+I/P:eat
+    ate
+O/P:anagram
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s=new Scanner(System.in);
+        String r=s.nextLine();
+        String t=s.nextLine();
+        int n=r.length();
+        int m=t.length();
+        if(n!=m){
+            System.out.print("Not anagram");
+    }else
+        ana(r,t,n);
+    }
+    public static int ana(String a,String b,int n){
+       // int n=a.length();
+     int arr[]=new int[26];
+     for(int i=0;i<n;i++){
+         arr[a.charAt(i)-97]++;
+         arr[b.charAt(i)-97]--;
+        }
+        for(int i=0;i<26;i++){
+            if(arr[i]!=0){
+               //ate System.out.println((char)(i+97)+" ");
+                System.out.println(" Not Anagram");
+             return 0;
+                
+            }
+        }
+                System.out.print(" Anagram");
+                return 0;
+}
+}
+REVERSE THE VOWELS IN SENTENCE
+I/P:This is a house 
+O/P:Thes us o haisi 
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s =new Scanner(System.in);
+        String str=s.nextLine();
+         inter(str);
+} 
+static void inter(String a){
+    StringBuilder st=new StringBuilder(a);
+    int i=0,j=st.length()-1;
+    while(i<j){
+        while(!(st.charAt(i)=='a'||st.charAt(i)=='e'||st.charAt(i)=='o'||st.charAt(i)=='i' ||st.charAt(i)=='u')){
+            i++;
+        }
+        while(!(st.charAt(j)=='a'||st.charAt(j)=='e'||st.charAt(j)=='o'||st.charAt(j)=='i' ||st.charAt(j)=='u')){
+            j--;
+        }
+        if(i<j){
+           char temp=st.charAt(i);
+            st.setCharAt(i,st.charAt(j));
+            st.setCharAt(j,temp);
+            i++;j--;
+        }
+    }
+    String z=st.toString();
+    System.out.print(z);
+}
+    
+}
+REVERSE EVERYTHIMNG EXCEPT SPACE,SPECIAL CHARACTERS
+I/P:Query home #123 y@s
+O/P:sy321 emoh #yre u@Q
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner s =new Scanner(System.in);
+        String str=s.nextLine();
+         inter(str);
+} 
+static void inter(String a){
+    StringBuilder st=new StringBuilder(a);
+    int i=0,j=st.length()-1;
+    while(i<j){
+        while(!((st.charAt(i)>=48 && st.charAt(i)<=57)||(st.charAt(i)>=65 && st.charAt(i)<=90)||(st.charAt(i)>=97 && st.charAt(i)<=122))){
+            i++;
+        }
+        while(!((st.charAt(j)>=48 && st.charAt(j)<=57)||(st.charAt(j)>=65 && st.charAt(j)<=90)||(st.charAt(j)>=97 && st.charAt(j)<=122))){
+            j--;
+        }
+        if(i<j){
+           char temp=st.charAt(i);
+            st.setCharAt(i,st.charAt(j));
+            st.setCharAt(j,temp);
+            i++;j--;
+        }
+    }
+    String z=st.toString();
+    System.out.print(z);
+}
+    
+}
+
+RAILWAY TIME
+import java.util.*;
+class RailwayTime{
+    public static void main(String[ ]args){
+    Scanner s=new Scanner(System.in);
+    String str=s.nextLine();
+    char time[]=str.toCharArray();
+    int l=str.length();
+if(!(str.charAt(0)=='1' && str.charAt(1)=='2') && str.charAt(9)=='P'){
+    int res=(str.charAt(0)-48)*10+str.charAt(1)-48+12;
+  
+    int x=res%10,y=res/10;
+    
+    time[0]=(char)(y+48);time[1]=(char)(x+48);
+}
+
+else if(str.charAt(0)=='1' && str.charAt(1)=='2'&& str.charAt(9)=='A'){
+    int res=(str.charAt(0)-49)+(str.charAt(1)-50);
+  
+    time[0]='0';time[1]='0';
+
+}
+for(int i=0;i<l-3;i++){
+        System.out.print(time[i]);
+}
+}
+}
+
